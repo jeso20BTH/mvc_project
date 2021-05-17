@@ -1,0 +1,14 @@
+{% include 'parts/header.html.twig' %}
+<div class="flex row start">
+    <a class="small-button button" href="#">Highscore</a>
+</div>
+<h1>{{header}}</h1>
+<div class="flex row center">
+    <a class="button" href="{{ path('rpg_new') }}">New game</a>
+</div>
+<div class="flex row center">
+    <a class="button" href="#">Load game</a>
+</div>
+
+
+{% include 'parts/footer.html.twig' %}

@@ -43,10 +43,12 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "phpstan/phpstan": "^0.12.87",
+        "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "^5.2",
         "symfony/css-selector": "^5.2",
         "symfony/debug-bundle": "^5.2",
-        "symfony/maker-bundle": "^1.0",
+        "symfony/maker-bundle": "^1.31",
         "symfony/phpunit-bridge": "^5.2",
         "symfony/stopwatch": "^5.2",
         "symfony/var-dumper": "^5.2",

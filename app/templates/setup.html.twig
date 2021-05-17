@@ -1,0 +1,38 @@
+{% include 'parts/header.html.twig' %}
+<h1>{{header}}</h1>
+<form class="" action="{{ path('rpg_new_post') }}" method="post">
+    <div class="flex row center">
+        <label for="name">Name</label>
+        <input type="text" name="name" value="{{ name }}">
+    </div>
+    <div class="flex column">
+        <p>Stamina - Increase HP by {{hp}} for each point from base HP of {{baseHP}}.</p>
+        <div class="flex row center">
+            <button class="button small-button {{ (stamina > 0) ? "" : "hidden" }}" type="submit" name="action" value="stamina-sub">-</button>
+            <input class="input-stats" readonly type="number" name="stamina" value="{{ stamina }}">
+            <button class="button small-button {{ (max) ? "hidden" : "" }}" type="submit" name="action" value="stamina-add">+</button>
+        </div>
+    </div>
+    <div class="flex column">
+        <p>Strength - Number of sides on each dice increased by {{ diceSides }} from base of {{ baseDiceSides }}.</p>
+        <div class="flex row center">
+            <button class="button small-button {{ (strenght > 0) ? "" : "hidden" }}" type="submit" name="action" value="strenght-sub">-</button>
+            <input class="input-stats" readonly type="number" name="strenght" value="{{ strenght }}">
+            <button class="button small-button {{ (max) ? "hidden" : "" }}" type="submit" name="action" value="strenght-add">+</button>
+        </div>
+    </div>
+    <div class="flex column">
+        <p>Agility - Number of dices increased by {{ dices }} from base of {{ baseDices }}.</p>
+        <div class="flex row center">
+            <button class="button small-button {{ (agility > 0) ? "" : "hidden" }}" type="submit" name="action" value="agility-sub">-</button>
+            <input class="input-stats" readonly type="number" name="agility" value="{{ agility }}">
+            <button class="button small-button {{ (max) ? "hidden" : "" }}" type="submit" name="action" value="agility-add">+</button>
+        </div>
+    </div>
+    {% if max %}
+        <input class="button" type="submit" name="action" value="confirm">
+    {% endif %}
+
+</form>
+
+{% include 'parts/footer.html.twig' %}
