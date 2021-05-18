@@ -12,16 +12,16 @@ all:
 	@echo "Review the file 'Makefile' to see what targets are supported."
 
 clean:
-	rm -rf build .phpunit.result.cache
+	rm -rf app/build app/.phpunit.result.cache
 
 clean-all: clean
-	rm -rf .bin vendor composer.lock
+	rm -rf app/.bin app/vendor app/composer.lock
 
 install: install-php-tools
 	composer install
 
 install-php-tools:
-	install -d .bin
+	install -d app/.bin
 
 	# phploc
 	curl -Lso $(PHPLOC) https://phar.phpunit.de/phploc.phar && chmod 755 $(PHPLOC)
@@ -56,7 +56,7 @@ check-version:
 
 prepare:
 	[ -d build ] || mkdir build
-	rm -rf build/*
+	rm -rf app/build/*
 
 phploc: prepare
 	[ ! -d src ] || $(PHPLOC) src | tee build/phploc
