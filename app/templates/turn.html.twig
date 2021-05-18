@@ -23,7 +23,7 @@
     <form class="" action="{{ path('rpg_backpack') }}" method="post">
         <button class="button small-button" type="button" name="button">Backpack</button>
     </form>
-    <a class="button small-button" href="{{ path('turn_log', {'game': game, 'returnRoute': 'rpg_turn'}) }}">Log</a>
+    <a class="button small-button" href="{{ path('log_turn', {'game': game, 'returnRoute': 'rpg_turn'}) }}">Log</a>
     <form class="" action="{{ path('rpg_turn_menu') }}" method="post">
         <button class="button small-button" type="button" name="button">Menu</button>
     </form>

@@ -1,20 +1,35 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Hello TurnLogController!{% endblock %}
-
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/cygwin64/home/jeppe/dbwebb-kurser/mvc/me/proj/app/src/Controller/TurnLogController.php'|file_link(0) }}">src/Controller/TurnLogController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/cygwin64/home/jeppe/dbwebb-kurser/mvc/me/proj/app/templates/turn_log/index.html.twig'|file_link(0) }}">templates/turn_log/index.html.twig</a></code></li>
-    </ul>
+{% include 'parts/header.html.twig' %}
+<div class="flex row start">
+    <a class="button small-button" href="{{ path(returnRoute) }}">Return</a>
 </div>
-{% endblock %}
+<h1>{{ header }}</h1>
+<div class="flex row center">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Player name</th>
+                <th>Damage dealt</th>
+                <th>Health gained</th>
+                <th>Monster Name</th>
+                <th>Damage dealt</th>
+                <th>Health gained</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turn in turns %}
+                <tr>
+                    <td>{{ turn.id }}</td>
+                    <td>{{ turn.playerName }}</td>
+                    <td>{{ turn.playerDamage }}</td>
+                    <td>{{ turn.playerHealthGain}}</td>
+                    <td>{{ turn.monsterName }}</td>
+                    <td>{{ turn.monsterDamage }}</td>
+                    <td>{{ turn.monsterHealthGain}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'parts/footer.html.twig' %}

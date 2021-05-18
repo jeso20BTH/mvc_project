@@ -37,11 +37,15 @@ class TurnLogController extends AbstractController
      */
     public function viewTurnLog(int $game, string $returnRoute): Response
     {
-        $turns = $this->repository->findAll();
-        var_dump($turns);
+        $turns = $this->repository->findBy(
+            ['gameNumber' => $game],
+            ['id' => 'DESC']
+        );
+        
         return $this->render('turn_log/index.html.twig', [
             'header' => 'Turns',
-            'turns' => $turns
+            'turns' => $turns,
+            'returnRoute' => $returnRoute
         ]);
     }
 
