@@ -1,0 +1,35 @@
+{% include 'parts/header.html.twig' %}
+<div class="flex row start">
+    <a class="button small-button" href="{{ path(returnRoute) }}">Return</a>
+</div>
+<h1>{{ header }}</h1>
+<div class="flex row center">
+    <table>
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turn in turns %}
+                <tr>
+                    <td>{{ turn.time }}</td>
+                    {% if turn.type == 'attack' %}
+                        <td>{{ turn.name }} dealt {{ turn.value }} damage to {{ turn.monsterName }}.</td>
+                    {% elseif turn.type == 'attack enemy' %}
+                        <td>{{ turn.monsterName }} dealt {{ turn.value }} damage to {{ turn.name }}.</td>
+                    {% elseif turn.type == 'heal' %}
+                        <td>{{ turn.name }} healed for {{ turn.value }}hp.</td>
+                    {% elseif turn.type == 'heal enemy' %}
+                        <td>{{ turn.monsterName }} healed for {{ turn.value }}hp.</td>
+                    {% elseif turn.type == 'kill' %}
+                        <td>{{ turn.name }} killed {{ turn.monsterName }} for {{ turn.value }}exp.</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include 'parts/footer.html.twig' %}

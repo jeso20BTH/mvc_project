@@ -1,0 +1,41 @@
+{% include 'parts/header.html.twig' %}
+<div class="flex row between bars">
+    <div class="bar hp left">
+        <div class="bar-filled"></div>
+        <p>{{ character.hp }}/{{ character.maxHP }} HP</p>
+    </div>
+    <p><strong>{{ character.name }}</strong> [Level {{character.level}}]</p>
+    <div class="bar exp right">
+        <div class="bar-filled"></div>
+        <p>{{ character.exp }}/{{ character.maxExp }} EXP</p>
+    </div>
+</div>
+
+<h1>{{header}}</h1>
+<div class="flex row center">
+    <fieldset class="flex column center width-50">
+        <legend>Enemy</legend>
+        <h2>{{monster.name}}</h2>
+        <div class="flex row between">
+            <div class="bar hp right-left">
+                <div class="bar-filled"></div>
+                <p>{{ monster.hp }}/{{ monster.maxHP }} HP</p>
+            </div>
+            <p>Dices: {{monster.dices}}</p>
+        </div>
+        <div class="flex row center">
+            <h3>Gained: {{monster.exp}}EXP</h3>
+        </div>
+    </fieldset>
+</div>
+<div class="flex row center">
+    <form class="" action="{{ path('save_log') }}" method="post">
+        <button class="button width-auto" type="submit" name="button">Continue</button>
+    </form>
+    <form class="" action="" method="post">
+        <button class="button width-auto" type="submit" name="button">Save game</button>
+    </form>
+</div>
+
+<script type="text/javascript" src="../../bars.js"></script>
+{% include 'parts/footer.html.twig' %}

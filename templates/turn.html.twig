@@ -1,0 +1,33 @@
+{% include 'parts/header.html.twig' %}
+<div class="flex row between bars">
+    <div class="bar hp left">
+        <div class="bar-filled"></div>
+        <p>{{ character.hp }}/{{ character.maxHP }} HP</p>
+    </div>
+    <p>{{ character.name }}[Level {{character.level}}]</p>
+    <div class="bar exp right">
+        <div class="bar-filled"></div>
+        <p>{{ character.exp }}/{{ character.maxExp }} EXP</p>
+    </div>
+</div>
+
+<h1>{{header}}</h1>
+<form class="flex row center" action="{{ path('rpg_turn_post') }}" method="post">
+    <button class="direction margin-top" type="submit" name="direction" value="left">&#5130;</button>
+    <div class="flex column start">
+        <button class="direction" type="submit" name="direction" value="forward">&#5123;</button>
+    </div>
+    <button class="direction margin-top" type="submit" name="direction" value="rigth">&#5125;</button>
+</form>
+<div class="flex row end">
+    <form class="" action="{{ path('rpg_backpack') }}" method="post">
+        <button class="button small-button" type="button" name="button">Backpack</button>
+    </form>
+    <a class="button small-button" href="{{ path('log_game', {'game': game, 'returnRoute': 'rpg_turn'}) }}">Log</a>
+    <form class="" action="{{ path('rpg_turn_menu') }}" method="post">
+        <button class="button small-button" type="button" name="button">Menu</button>
+    </form>
+</div>
+
+<script type="text/javascript" src="../bars.js"></script>
+{% include 'parts/footer.html.twig' %}

@@ -1,5 +1,5 @@
-BIN        := app/.bin
-VENDORBIN  := app/vendor/bin
+BIN        := .bin
+VENDORBIN  := vendor/bin
 PHPLOC     := $(BIN)/phploc
 PHPCS      := $(BIN)/phpcs
 PHPCBF     := $(BIN)/phpcbf
@@ -56,7 +56,7 @@ check-version:
 
 prepare:
 	[ -d build ] || mkdir build
-	rm -rf app/build/*
+	rm -rf build/*
 
 phploc: prepare
 	[ ! -d src ] || $(PHPLOC) src | tee build/phploc
