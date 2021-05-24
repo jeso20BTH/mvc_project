@@ -10,6 +10,7 @@ namespace App\Game;
  */
 class Dice
 {
+    private string $type;
     private int $faces;
     private array $specialFaces;
     private ?array $roll = null;
@@ -28,6 +29,7 @@ class Dice
 
     public function __construct(int $faces, string $type)
     {
+        $this->type = $type;
         $this->faces = $faces;
         $this->specialFaces = Dice::DICES[$type];
     }
@@ -49,5 +51,13 @@ class Dice
     public function setLastRoll(array $roll): void
     {
         $this->roll = $roll;
+    }
+
+    public function presentDice(): array
+    {
+        return [
+            'type' => $this->type,
+            'faces' => $this->faces
+        ];
     }
 }

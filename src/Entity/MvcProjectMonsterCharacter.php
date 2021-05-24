@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\MvcProjectMonsterLogRepository;
+use App\Repository\MvcProjectMonsterCharacterRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=MvcProjectMonsterLogRepository::class)
+ * @ORM\Entity(repositoryClass=MvcProjectMonsterCharacterRepository::class)
  */
-class MvcProjectMonsterLog
+class MvcProjectMonsterCharacter
 {
     /**
      * @ORM\Id
@@ -30,17 +30,12 @@ class MvcProjectMonsterLog
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $exp;
+    private $experience;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $dices;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $game_number;
+    private $monster_rank;
 
     public function getId(): ?int
     {
@@ -71,38 +66,26 @@ class MvcProjectMonsterLog
         return $this;
     }
 
-    public function getExp(): ?int
+    public function getExperience(): ?int
     {
-        return $this->exp;
+        return $this->experience;
     }
 
-    public function setExp(?int $exp): self
+    public function setExperience(?int $experience): self
     {
-        $this->exp = $exp;
+        $this->experience = $experience;
 
         return $this;
     }
 
-    public function getDices(): ?int
+    public function getMonsterRank(): ?int
     {
-        return $this->dices;
+        return $this->monster_rank;
     }
 
-    public function setDices(?int $dices): self
+    public function setMonsterRank(?int $monster_rank): self
     {
-        $this->dices = $dices;
-
-        return $this;
-    }
-
-    public function getGameNumber(): ?int
-    {
-        return $this->game_number;
-    }
-
-    public function setGameNumber(?int $game_number): self
-    {
-        $this->game_number = $game_number;
+        $this->monster_rank = $monster_rank;
 
         return $this;
     }

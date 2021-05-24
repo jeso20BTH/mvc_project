@@ -56,7 +56,6 @@ class LogController extends AbstractController
     {
         $res = $this->session->get('toDB');
         foreach ($res as $row) {
-            var_dump($row);
             $this->addToLog(
                 $row["time"],
                 $row["name"],

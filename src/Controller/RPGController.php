@@ -97,20 +97,6 @@ class RPGController extends AbstractController
     }
 
     /**
-     * @Route("/rpg/backpack", name="rpg_backpack", methods={"GET", "HEAD"})
-    */
-    public function rpgBackpack(): Response
-    {
-        $callable = $this->session->get('currentCharacter');
-        $character = $callable->presentPlayer();
-
-        return $this->render('base.html.twig', [
-            'header' => "Chose path",
-            'character' => $character,
-        ]);
-    }
-
-    /**
      * @Route("/rpg/battle", name="rpg_battle", methods={"GET", "HEAD"})
     */
     public function rpgBattle(): Response
@@ -126,7 +112,11 @@ class RPGController extends AbstractController
             return $this->redirectToRoute('rpg_summary_game');
         } elseif ($monster['hp'] <= 0) {
             $character->addExp($monster['exp']);
+            $levelUp = $character->levelUp($monster['exp']);
             $this->session->set('currentCharacter', $character);
+            if ($levelUp) {
+                return $this->redirectToRoute('rpg_level_up');
+            }
             return $this->redirectToRoute('rpg_summary_monster');
         }
 
@@ -162,15 +152,136 @@ class RPGController extends AbstractController
     }
 
     /**
+     * @Route("/rpg/backpack/{returnRoute}", name="rpg_backpack", methods={"GET", "HEAD"})
+    */
+    public function rpgBackpack(string $returnRoute): Response
+    {
+        $character = $this->session->get('currentCharacter');
+        $character = $character->presentPlayer();
+
+        return $this->render('backpack.html.twig', [
+            'header' => "Backpack",
+            'character' => $character,
+            'allFood' => GameRules::FOOD,
+            'returnRoute' => $returnRoute
+        ]);
+    }
+
+    /**
+     * @Route("/rpg/battle/levelup", name="rpg_level_up", methods={"GET", "HEAD"})
+    */
+    public function rpgLevelUp(): Response
+    {
+        $character = $this->session->get('currentCharacter');
+        $characterPres = $character->presentPlayer();
+        $characterStats = $character->getStats();
+        $futureStats = $this->session->get('levelUp') ?? [
+            'stamina' => $characterStats["stamina"],
+            'strenght' => $characterStats["strenght"],
+            'agility' => $characterStats["agility"],
+            'max' => false,
+            'usedPoints' => 0
+        ];
+
+        return $this->render('levelup.html.twig', [
+            'header' => "Level Up",
+            'name' => $characterPres["name"],
+            'stamina' => $futureStats["stamina"] ?? 0,
+            'staminaMin' => $characterStats["stamina"],
+            'strenght' => $futureStats["strenght"] ?? 0,
+            'strenghtMin' => $characterStats["strenght"],
+            'agility' => $futureStats["agility"] ?? 0,
+            'agilityMin' => $characterStats["agility"],
+            'max' => $futureStats["max"],
+            'usedPoints' => $futureStats["usedPoints"],
+            'hp' => GameRules::INCREASE_HP ?? 0,
+            'baseHP' => GameRules::BASE_HP ?? 0,
+            'diceSides' => GameRules::INCREASE_DICE_SIDES ?? 0,
+            'baseDiceSides' => GameRules::BASE_DICE_SIDES ?? 0,
+            'dices' => GameRules::INCREASE_DICES ?? 0,
+            'baseDices' => GameRules::BASE_DICES ?? 0
+        ]);
+    }
+
+    /**
+     * @Route("/rpg/battle/levelup", name="rpg_level_up_post", methods={"POST"})
+    */
+    public function rpgLevelUpPost(): Response
+    {
+        $character = $this->session->get('currentCharacter');
+        $characterPres = $character->presentPlayer();
+        $characterStats = $character->getStats();
+        $futureStats = $this->session->get('levelUp');
+
+        $stamina = intval($_POST["stamina"]);
+        $strenght = intval($_POST["strenght"]);
+        $agility = intval($_POST["agility"]);
+
+        $action = $_POST["action"];
+
+        switch ($action) {
+            case 'stamina-sub':
+                $stamina--;
+                break;
+            case 'stamina-add':
+                $stamina++;
+                break;
+            case 'strenght-sub':
+                $strenght--;
+                break;
+            case 'strenght-add':
+                $strenght++;
+                break;
+            case 'agility-sub':
+                $agility--;
+                break;
+            case 'agility-add':
+                $agility++;
+                break;
+        }
+
+        $prevSum = $characterStats["stamina"] +
+            $characterStats["strenght"] +
+            $characterStats["agility"];
+
+        $futureSum = $stamina + $strenght + $agility;
+
+        $max = $futureSum - $prevSum >= GameRules::LEVEL_UP_POINTS;
+
+        if ($_POST["action"] === "Confirm") {
+            $callable = $this->session->get('currentGame');
+            $stats = $callable ->generateStats($stamina, $strenght, $agility);
+            $callable->getCharacter()->setStats($stats);
+            $player = $callable->getCharacter();
+
+            $this->session->set('currentCharacter', $player);
+            $this->session->set('levelUp', null);
+
+            return $this->redirectToRoute('rpg_summary_monster');
+        }
+
+        $this->session->set('levelUp', [
+            'name' => $characterPres["name"],
+            'stamina' => $stamina,
+            'strenght' => $strenght,
+            'agility' => $agility,
+            'max' => $max,
+            'usedPoints' => $futureSum - $prevSum
+        ]);
+
+        return $this->redirectToRoute('rpg_level_up');
+    }
+
+    /**
      * @Route("/rpg/setup", name="rpg_new_post", methods={"POST"})
     */
     public function rpgNewPost(): Response
     {
         $pointsToSet = GameRules::POINTS_TO_START;
         $name = $_POST["name"];
-        $stamina = $_POST["stamina"];
-        $strenght = $_POST["strenght"];
-        $agility = $_POST["agility"];
+        $stamina = intval($_POST["stamina"]);
+        $strenght = intval($_POST["strenght"]);
+        $agility = intval($_POST["agility"]);
 
         $action = $_POST["action"];
 
@@ -206,7 +317,7 @@ class RPGController extends AbstractController
             'max' => $max
         ]);
 
-        if ($action == "confirm") {
+        if ($action == "Confirm") {
             $callable = $this->session->get('currentGame');
 
 
@@ -215,12 +326,11 @@ class RPGController extends AbstractController
 
             $hp = GameRules::BASE_HP + ($stamina * GameRules::INCREASE_HP);
             $exp = 0;
-            $dices = $callable ->generateDices($diceFaces, $noOfDices);
-            $food = [];
-            $skills = [];
             $stats = $callable ->generateStats($stamina, $strenght, $agility);
 
-            $player = new Character($name, $hp, $exp, $dices, $food, $skills, $stats);
+            $callable->setupCharacter($name, $hp, $exp, $stats);
+            $player = $callable->getCharacter();
+
             $this->session->set('currentCharacter', $player);
             $this->session->set('charSetup', null);
 
@@ -261,24 +371,34 @@ class RPGController extends AbstractController
         $lastRollCharacter = $game->handleRoll($lastRollCharacter);
         $lastRollMonster = $game->handleRoll($lastRollMonster);
 
-        var_dump($lastRollCharacter);
-        var_dump($lastRollMonster);
 
         $damage = $game->countDamage($lastRollCharacter, $lastRollMonster);
-        var_dump($damage);
 
         $res = $game->endAttack($character, $monster, $damage);
-        var_dump($res);
+
 
         $this->session->set('currentCharacter', $res['character']);
         $this->session->set('currentMonster', $res['monster']);
         $this->session->set('toDB', $res['toDB']);
 
-
-
-        // $this->session->set("currentMonster", $monster);
-        //
         return $this->redirectToRoute('save_log');
+    }
+
+    /**
+     * @Route("/rpg/food", name="rpg_food_post", methods={"POST"})
+    */
+    public function rpgEatFood(): Response
+    {
+        $character = $this->session->get('currentCharacter');
+
+        $food = $_POST["food"];
+        $character->eatFood($food);
+
+        $redirect = $_POST["redirect"];
+
+        $this->session->set('currentCharacter', $character);
+
+        return $this->redirectToRoute('rpg_backpack', ['returnRoute' => $redirect]);
     }
 
     /**

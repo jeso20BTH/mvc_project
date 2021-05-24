@@ -39,9 +39,37 @@ class Game
         return $dicesToUse;
     }
 
-    public function setupCharacter($hp, $exp, $dices, $food, $skills, $stats): void
+    public function setupCharacter(
+        string $name,
+        int $hp,
+        int $exp,
+        ?array $stats,
+        ?array $backpack = null,
+        ?array $normalDices = null
+        ): void
     {
-        $this->player = new Character($hp, $exp, $dices, $food, $skills, $stats);
+        if ($backpack === null) {
+            $backpack = GameRules::LEVEL_REWARD["start"];
+        }
+
+        $this->player = new Character($name, $hp, $exp);
+
+        $this->player->setStats($stats);
+
+        foreach ($backpack as $item) {
+            $this->player->addToBackpack($item);
+        }
+
+        $len = GameRules::BASE_DICES + ($stats["agility"] * GameRules::INCREASE_DICES);
+        $faces = GameRules::BASE_DICE_SIDES + ($stats["strenght"] * GameRules::INCREASE_DICE_SIDES);
+        for ($i=0; $i < $len; $i++) {
+            $this->player->addDice($faces, 'normal');
+        }
+    }
+
+    public function getCharacter(): Character
+    {
+        return $this->player;
     }
 
     public function handleRoll(array $roll): ?array
@@ -170,5 +198,60 @@ class Game
     public function getGame(): int
     {
         return $this->gameNumber;
+    }
+
+    public function characterDeath(array $character, string $monsterName): array
+    {
+        return [
+            'time' => date("Y-m-d H:i:s"), // Add correct format
+            'name' => $character['name'],
+            'monsterName' => $monsterName,
+            'gameNumber' => $this->gameNumber,
+            'type' => 'death',
+            'value' => 666
+        ];
+    }
+
+public function gameSummary(int $gameNumber): array
+    {
+        //$res = find in db by $gameNumber
+
+        $killCounter = 0;
+        $healcounter = 0;
+        $damageDealtCounter = 0;
+        $damageTakenCounter = 0;
+        $expCounter = 0;
+
+        foreach ($res as $row) {
+            switch ($row["type"]) {
+                case 'kill':
+                    $killCounter++;
+                    $expCounter += $row["value"];
+                    break;
+                case 'heal':
+                    $healCounter += $row["value"];
+                    break;
+                case 'attack':
+                    $damageDealtCounter += $row["value"];
+                    break;
+                case 'attack enemy':
+                    $damageTakenCounter += $row["value"];
+                    break;
+            }
+        }
+
+        $score = $killCounter * GameRules::KILL_VALUE + $healCounter + $damageDealtCounter + $expCounter - $damageTakenCounter;
+
+        return [
+            'gameNumber' => $this->gameNumber,
+            'name' => $res[0]['name'],
+            'kills' => $killCounter,
+            'exp' => $expCounter,
+            'heal' => $heal,
+            'damageDealt' => $damageDealtCounter,
+            'damageTaken' => $damageTakenCounter,
+            'score' => $score
+        ];
+
     }
 }

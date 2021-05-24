@@ -29,9 +29,7 @@
     <form class="" action="{{ path('rpg_attack_post') }}" method="post">
         <button class="button width-auto" type="submit" name="button">Attack</button>
     </form>
-    <form class="" action="" method="post">
-        <button class="button width-auto" type="submit" name="button">Backpack</button>
-    </form>
+    <a class="button width-auto" href="{{ path('rpg_backpack', {'returnRoute': 'rpg_battle'}) }}">Backpack</a>
     <a class="button width-auto" href="{{ path('log_game', {'game': game, 'returnRoute': 'rpg_battle'}) }}">Log</a>
 </div>
 

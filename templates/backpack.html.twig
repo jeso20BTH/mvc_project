@@ -1,0 +1,71 @@
+{% include 'parts/header.html.twig' %}
+<div class="flex row between bars">
+    <div class="bar hp left">
+        <div class="bar-filled"></div>
+        <p>{{ character.hp }}/{{ character.maxHP }} HP</p>
+    </div>
+    <p>{{ character.name }}[Level {{character.level}}]</p>
+    <div class="bar exp right">
+        <div class="bar-filled"></div>
+        <p>{{ character.exp }}/{{ character.maxExp }} EXP</p>
+    </div>
+</div>
+<div class="flex row start">
+    <a class="button small-button" href="{{ path(returnRoute) }}">Return</a>
+</div>
+<h1>{{header}}</h1>
+<div class="flex column start">
+    <h2>Dices</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Faces</td>
+                <td>Amount</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for type, dices  in character.backpack.dices %}
+                {% for faces, amount in dices %}
+                <tr>
+                    <td>{{ type|capitalize }}</td>
+                    <td>{{ faces }}</td>
+                    <td>{{ amount }}</td>
+                </tr>
+                {% endfor %}
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="flex column start">
+    <h2>Food</h2>
+    <table>
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Amount</td>
+                <td>Healing amount</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, food in character.backpack.food %}
+                <tr>
+                    <td>{{ key|capitalize }}</td>
+                    <td>{{ food }}</td>
+                    <td>{{ allFood[key] }}hp</td>
+                    <td>
+                        <form class="" action="{{ path('rpg_food_post') }}" method="post">
+                            <input type="hidden" name="redirect" value="{{ returnRoute }}">
+                            <button class="button small-button" type="submit" name="food" value="{{ key }}">Use</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+<script type="text/javascript" src="../../bars.js"></script>
+{% include 'parts/footer.html.twig' %}

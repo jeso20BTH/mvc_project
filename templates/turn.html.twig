@@ -20,9 +20,7 @@
     <button class="direction margin-top" type="submit" name="direction" value="rigth">&#5125;</button>
 </form>
 <div class="flex row end">
-    <form class="" action="{{ path('rpg_backpack') }}" method="post">
-        <button class="button small-button" type="button" name="button">Backpack</button>
-    </form>
+    <a class="button small-button" href="{{ path('rpg_backpack', {'returnRoute': 'rpg_turn'}) }}">Backpack</a>
     <a class="button small-button" href="{{ path('log_game', {'game': game, 'returnRoute': 'rpg_turn'}) }}">Log</a>
     <form class="" action="{{ path('rpg_turn_menu') }}" method="post">
         <button class="button small-button" type="button" name="button">Menu</button>
