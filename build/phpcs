@@ -1,0 +1,238 @@
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\config\preload.php
+-------------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 2 LINES
+-------------------------------------------------------------------------
+ 3 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 3 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 4 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 4 | ERROR | [x] Expected at least 1 space after "."; 0 found
+-------------------------------------------------------------------------
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\public\bars.js
+----------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 1 | ERROR | [x] Expected 1 space after FUNCTION keyword; 0 found
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\public\index.php
+-----------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 2 LINES
+-----------------------------------------------------------------------
+  8 | ERROR | [x] Expected at least 1 space before "."; 0 found
+  8 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 10 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 10 | ERROR | [x] Expected at least 1 space after "."; 0 found
+-----------------------------------------------------------------------
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-----------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Controller\HighscoreController.php
+-------------------------------------------------------------------------------------------------------------------------------
+FOUND 3 ERRORS AFFECTING 3 LINES
+-------------------------------------------------------------------------------------------------------------------------------
+  61 | ERROR | [ ] Method name "HighscoreController::save_highscorePost" is not in camel caps format
+  93 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+ 114 | ERROR | [x] Function closing brace must go on the next line following the body; found 1 blank lines before brace
+-------------------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Controller\LogController.php
+-------------------------------------------------------------------------------------------------------------------------------
+FOUND 5 ERRORS AFFECTING 5 LINES
+-------------------------------------------------------------------------------------------------------------------------------
+  20 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+  21 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+  86 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+  87 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+ 109 | ERROR | [x] Function closing brace must go on the next line following the body; found 2 blank lines before brace
+-------------------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Controller\MonsterCharacterController.php
+------------------------------------------------------------------------------------------------------------------------------
+FOUND 2 ERRORS AFFECTING 2 LINES
+------------------------------------------------------------------------------------------------------------------------------
+ 22 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+ 23 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+------------------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Controller\MonsterLogController.php
+------------------------------------------------------------------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 4 LINES
+------------------------------------------------------------------------------------------------------------------------------
+ 19 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+ 20 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+ 61 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+ 62 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+------------------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Controller\RPGController.php
+---------------------------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 3 LINES
+---------------------------------------------------------------------------------------
+   9 | ERROR | [x] Header blocks must not contain blank lines
+ 215 | ERROR | [x] Expected at least 1 space before "="; 0 found
+ 215 | ERROR | [x] Expected at least 1 space after "="; 0 found
+ 335 | ERROR | [x] Expected at least 1 space after "+"; 0 found
+---------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+---------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Controller\TurnLogController.php
+------------------------------------------------------------------------------------------------------------------------------
+FOUND 5 ERRORS AFFECTING 5 LINES
+------------------------------------------------------------------------------------------------------------------------------
+ 19 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+ 20 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+ 44 | ERROR | [x] Whitespace found at end of line
+ 81 | ERROR | [x] The closing parenthesis of a multi-line function declaration must be on a new line
+ 82 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+------------------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 5 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Entity\MvcProjectHighscore.php
+-------------------------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+-------------------------------------------------------------------------------------------
+ 162 | ERROR | [x] The closing brace for the class must go on the next line after the body
+-------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Game\Character.php
+-------------------------------------------------------------------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 4 LINES
+-------------------------------------------------------------------------------------------------------------------------------
+   5 | ERROR | [x] Header blocks must be separated by a single blank line
+  27 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+  28 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+ 117 | ERROR | [x] PHP return type declarations must be lowercase; expected "string" but found "String"
+-------------------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Game\Dice.php
+------------------------------------------------------------------------
+FOUND 1 ERROR AFFECTING 1 LINE
+------------------------------------------------------------------------
+ 5 | ERROR | [x] Header blocks must be separated by a single blank line
+------------------------------------------------------------------------
+PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Game\Game.php
+-------------------------------------------------------------------------------------------------------------------------------
+FOUND 10 ERRORS AFFECTING 8 LINES
+-------------------------------------------------------------------------------------------------------------------------------
+  47 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+  48 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+  63 | ERROR | [x] Expected at least 1 space before "="; 0 found
+  63 | ERROR | [x] Expected at least 1 space after "="; 0 found
+  71 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+  72 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+  87 | ERROR | [x] Expected at least 1 space before "="; 0 found
+  87 | ERROR | [x] Expected at least 1 space after "="; 0 found
+ 216 | ERROR | [x] Line indented incorrectly; expected at least 16 spaces, found 12
+ 275 | ERROR | [x] Function closing brace must go on the next line following the body; found 1 blank lines before brace
+-------------------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 10 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Game\GameRules.php
+-------------------------------------------------------------------------------------
+FOUND 3 ERRORS AFFECTING 3 LINES
+-------------------------------------------------------------------------------------
+  5 | ERROR | [x] Header blocks must be separated by a single blank line
+ 29 | ERROR | [x] PHP keywords must be lowercase; expected "const" but found "CONST"
+ 39 | ERROR | [x] PHP keywords must be lowercase; expected "const" but found "CONST"
+-------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+-------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Game\Monster.php
+------------------------------------------------------------------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 4 LINES
+------------------------------------------------------------------------------------------------------------------------------
+  5 | ERROR | [x] Header blocks must be separated by a single blank line
+ 26 | ERROR | [x] Multi-line function declaration not indented correctly; expected 4 spaces but found 8
+ 27 | ERROR | [x] The closing parenthesis and the opening brace of a multi-line function declaration must be on the same line
+ 70 | ERROR | [x] PHP return type declarations must be lowercase; expected "string" but found "String"
+------------------------------------------------------------------------------------------------------------------------------
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+------------------------------------------------------------------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\src\Kernel.php
+----------------------------------------------------------------------
+FOUND 20 ERRORS AFFECTING 7 LINES
+----------------------------------------------------------------------
+ 17 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 17 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 17 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 17 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 19 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 19 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 21 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 21 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 21 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 21 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 22 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 22 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 29 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 29 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 29 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 29 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 32 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 32 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 34 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 34 | ERROR | [x] Expected at least 1 space after "."; 0 found
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 20 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+
+FILE: C:\cygwin64\home\jeppe\dbwebb-kurser\mvc\me\proj\tests\bootstrap.php
+--------------------------------------------------------------------------
+FOUND 8 ERRORS AFFECTING 4 LINES
+--------------------------------------------------------------------------
+  5 | ERROR | [x] Expected at least 1 space before "."; 0 found
+  5 | ERROR | [x] Expected at least 1 space after "."; 0 found
+  7 | ERROR | [x] Expected at least 1 space before "."; 0 found
+  7 | ERROR | [x] Expected at least 1 space after "."; 0 found
+  8 | ERROR | [x] Expected at least 1 space before "."; 0 found
+  8 | ERROR | [x] Expected at least 1 space after "."; 0 found
+ 10 | ERROR | [x] Expected at least 1 space before "."; 0 found
+ 10 | ERROR | [x] Expected at least 1 space after "."; 0 found
+--------------------------------------------------------------------------
+PHPCBF CAN FIX THE 8 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+--------------------------------------------------------------------------
+
+Time: 7.14 secs; Memory: 10MB
+

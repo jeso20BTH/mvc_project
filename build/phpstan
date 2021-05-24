@@ -1,0 +1,62 @@
+ ------ ------------------------------------------------------------------------------------- 
+ [32m Line [39m [32m src\Controller\MonsterLogController.php                                             [39m 
+ ------ ------------------------------------------------------------------------------------- 
+  22     Access to an undefined property App\Controller\MonsterLogController::$session.       
+  40     Access to an undefined property App\Controller\MonsterLogController::$session.       
+  50     Access to an undefined property App\Controller\MonsterLogController::$session.       
+[39;49m  67     Instantiated class App\Entity\MvcProjectMonsterLog not found.[39;49m[39;49m                        [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                   
+[39;49m  68     Call to method setName() on an unknown class App\Entity\MvcProjectMonsterLog.[39;49m[39;49m        [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                   
+[39;49m  69     Call to method setHp() on an unknown class App\Entity\MvcProjectMonsterLog.[39;49m[39;49m          [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                   
+[39;49m  70     Call to method setExp() on an unknown class App\Entity\MvcProjectMonsterLog.[39;49m[39;49m         [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                   
+[39;49m  71     Call to method setDices() on an unknown class App\Entity\MvcProjectMonsterLog.[39;49m[39;49m       [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                   
+[39;49m  72     Call to method setGameNumber() on an unknown class App\Entity\MvcProjectMonsterLog.[39;49m[39;49m  [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                   
+ ------ ------------------------------------------------------------------------------------- 
+
+ ------ ---------------------------------------------------------------------------------- 
+ [32m Line [39m [32m src\Controller\RPGController.php                                                 [39m 
+ ------ ---------------------------------------------------------------------------------- 
+  389    Parameter #2 $hp of class App\Game\Monster constructor expects int, float given.  
+[39;49m  452    Instantiated class App\Controller\Dice not found.[39;49m[39;49m                                 [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                
+[39;49m  453    Call to method roll() on an unknown class App\Controller\Dice.[39;49m[39;49m                    [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                
+ ------ ---------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------- 
+ [32m Line [39m [32m src\Controller\TurnLogController.php                                        [39m 
+ ------ ----------------------------------------------------------------------------- 
+  22     Access to an undefined property App\Controller\TurnLogController::$session.  
+  57     Access to an undefined property App\Controller\TurnLogController::$session.  
+  69     Access to an undefined property App\Controller\TurnLogController::$session.  
+ ------ ----------------------------------------------------------------------------- 
+
+ ------ ------------------------------- 
+ [32m Line [39m [32m src\Game\Game.php             [39m 
+ ------ ------------------------------- 
+  73     Undefined variable: $backpack  
+  77     Undefined variable: $exp       
+  77     Undefined variable: $hp        
+  77     Undefined variable: $name      
+  79     Undefined variable: $stats     
+  85     Undefined variable: $stats     
+  86     Undefined variable: $stats     
+ ------ ------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
+ [32m Line [39m [32m src\Repository\MvcProjectMonsterLogRepository.php                                                                                                                      [39m 
+ ------ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
+[39;49m  19     Class App\Entity\MvcProjectMonsterLog not found.[39;49m[39;49m                                                                                                                        [39;49m
+[39;49m         [39;49m💡 Learn more at https://phpstan.org/user-guide/discovering-symbols                                                                                                      
+  19     Parameter #2 $entityClass of method Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository<mixed>::__construct() expects class-string<mixed>, string given.  
+ ------ ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ 
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] Found 24 errors                                                                                                [39;49m
+[37;41m                                                                                                                        [39;49m
+
