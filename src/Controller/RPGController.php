@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Repository\MvcProjectLogRepository;
 
 use App\Game\Game;
 use App\Game\Character;
@@ -15,10 +16,12 @@ use App\Game\Monster;
 class RPGController extends AbstractController
 {
     private object $session;
+    private $repository;
 
-    public function __construct(SessionInterface $session)
+    public function __construct(SessionInterface $session, MvcProjectLogRepository $logRepository)
     {
         $this->session = $session;
+        $this->repository = $logRepository;
     }
 
     /**
@@ -200,6 +203,29 @@ class RPGController extends AbstractController
             'baseDiceSides' => GameRules::BASE_DICE_SIDES ?? 0,
             'dices' => GameRules::INCREASE_DICES ?? 0,
             'baseDices' => GameRules::BASE_DICES ?? 0
+        ]);
+    }
+
+    /**
+     * @Route("/rpg/summary/game", name="rpg_summary_game", methods={"GET", "HEAD"})
+    */
+    public function rpgGameOver(): Response
+    {
+        $game = $this->session->get('currentGame');
+        $gameNumber=$game->getGame();
+
+        $res = $this->repository->findBy(
+            ['game_number' => $gameNumber],
+            ['id' => 'DESC']
+        );
+
+        $summary = $game->gameSummary($res);
+
+        $this->session->set('toHighscore', $summary);
+
+        return $this->render('gameover.html.twig', [
+            'header' => "Game Over",
+            'summary' => $summary
         ]);
     }
 

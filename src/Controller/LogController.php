@@ -12,6 +12,7 @@ use App\Entity\MvcProjectLog;
 class LogController extends AbstractController
 {
     private $repository;
+    private $session;
 
     public function __construct(
         SessionInterface $session,

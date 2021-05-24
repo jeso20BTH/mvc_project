@@ -9,9 +9,6 @@
             <tr>
                 <th>Player</th>
                 <th>Kills</th>
-                <th>Exp</th>
-                <th>Damage dealt</th>
-                <th>Damage taken</th>
                 <th>Score</th>
             </tr>
         </thead>
@@ -20,10 +17,7 @@
                 <tr>
                     <td>{{ score.name }}</td>
                     <td>{{ score.kills }}</td>
-                    <td>{{ score.exp }}</td>
-                    <td>{{ score.damageDealt }}</td>
-                    <td>{{ score.damageTaken }}</td>
-                    <td><strong>{{ score.score }}</strong></td>
+                    <td>{{ score.score }}</td>
                 </tr>
             {% endfor %}
         </tbody>

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Game;
 
-
 /**
  * Class Dice.
  */
@@ -212,30 +211,27 @@ class Game
         ];
     }
 
-public function gameSummary(int $gameNumber): array
+    public function gameSummary($res): array
     {
-        //$res = find in db by $gameNumber
-
         $killCounter = 0;
-        $healcounter = 0;
+        $healCounter = 0;
         $damageDealtCounter = 0;
         $damageTakenCounter = 0;
         $expCounter = 0;
-
         foreach ($res as $row) {
-            switch ($row["type"]) {
+            switch ($row->getType()) {
                 case 'kill':
                     $killCounter++;
-                    $expCounter += $row["value"];
+                    $expCounter += $row->getValue();
                     break;
                 case 'heal':
-                    $healCounter += $row["value"];
+                    $healCounter += $row->getValue();
                     break;
                 case 'attack':
-                    $damageDealtCounter += $row["value"];
+                    $damageDealtCounter += $row->getValue();
                     break;
                 case 'attack enemy':
-                    $damageTakenCounter += $row["value"];
+                    $damageTakenCounter += $row->getValue();
                     break;
             }
         }
@@ -244,10 +240,10 @@ public function gameSummary(int $gameNumber): array
 
         return [
             'gameNumber' => $this->gameNumber,
-            'name' => $res[0]['name'],
+            'name' => $res[0]->getName(),
             'kills' => $killCounter,
             'exp' => $expCounter,
-            'heal' => $heal,
+            'heal' => $healCounter,
             'damageDealt' => $damageDealtCounter,
             'damageTaken' => $damageTakenCounter,
             'score' => $score

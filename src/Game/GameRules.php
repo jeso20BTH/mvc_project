@@ -12,6 +12,7 @@ class GameRules
 {
     const POINTS_TO_START = 5;
     const LEVEL_UP_POINTS = 1;
+    const HIGHSCORE_LIMIT = 10;
     const HP_INCREASAE = 5;
     const BASE_HP = 100;
     const BASE_DICE_SIDES = 6;
@@ -24,6 +25,7 @@ class GameRules
     const HEALTH_GAIN = 5;
     const DAMAGE_BLOCKED = 5;
     const EXTRA_DAMAGE = 0.2;
+    const KILL_VALUE = 5;
     CONST FOOD = [
         'cookie' => 5,
         'egg' => 10,
@@ -46,5 +48,4 @@ class GameRules
         9 => ['steak', 'steak', 'steak'],
         10 => ['shield3', 'health3', 'damage3']
     ];
-    CONST SKILL_POINTS_LEVEL_UP = 2;
 }
