@@ -28,12 +28,11 @@ class Game
         ];
     }
 
-    public function generateDices($faces, $dices): array
+    public function generateDices(array $dices): array
     {
         $dicesToUse = [];
-
-        for ($i=0; $i < $dices; $i++) {
-            $dicesToUse[] = new Dice($faces, 'normal');
+        foreach ($dices as $dice) {
+            $dicesToUse[] = new Dice($dice["faces"], $dice["type"]);
         }
         return $dicesToUse;
     }
@@ -45,6 +44,30 @@ class Game
         ?array $stats,
         ?array $backpack = null,
         ?array $normalDices = null
+        ): void
+    {
+        if ($backpack === null) {
+            $backpack = GameRules::LEVEL_REWARD["start"];
+        }
+
+        $this->player = new Character($name, $hp, $exp);
+
+        $this->player->setStats($stats);
+
+        foreach ($backpack as $item) {
+            $this->player->addToBackpack($item);
+        }
+
+        $len = GameRules::BASE_DICES + ($stats["agility"] * GameRules::INCREASE_DICES);
+        $faces = GameRules::BASE_DICE_SIDES + ($stats["strenght"] * GameRules::INCREASE_DICE_SIDES);
+        for ($i=0; $i < $len; $i++) {
+            $this->player->addDice($faces, 'normal');
+        }
+    }
+
+    public function setupMonster(
+        array $Monsters,
+        string $direction
         ): void
     {
         if ($backpack === null) {

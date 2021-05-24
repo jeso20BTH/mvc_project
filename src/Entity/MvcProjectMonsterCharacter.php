@@ -23,7 +23,7 @@ class MvcProjectMonsterCharacter
     private $name;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      */
     private $hp;
 
@@ -54,12 +54,12 @@ class MvcProjectMonsterCharacter
         return $this;
     }
 
-    public function getHp(): ?int
+    public function getHp(): ?float
     {
         return $this->hp;
     }
 
-    public function setHp(?int $hp): self
+    public function setHp(?float $hp): self
     {
         $this->hp = $hp;
 

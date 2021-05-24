@@ -371,8 +371,25 @@ class RPGController extends AbstractController
     public function rpgTurnPost(): Response
     {
         $callable = $this->session->get('currentGame');
-        $dices = $callable ->generateDices(6, 2);
-        $monster = new Monster("Darth vader", 80, 20, $dices);
+        $character = $this->session->get('currentCharacter');
+        $characterHP = $character->getMaxHp();
+
+        $allMonsters = $this->session->get('allMonsters');
+
+        $monsterNumber = rand(0, count($allMonsters) - 1);
+
+        $currentMonster = $allMonsters[$monsterNumber];
+
+
+
+        $dices = $callable ->generateDices($currentMonster["dices"]);
+        $hp = round($currentMonster["hpPercentage"] * $characterHP);
+        $monster = new Monster(
+            $currentMonster["name"],
+            $hp,
+            $currentMonster["exp"],
+            $dices
+        );
 
         $this->session->set("currentMonster", $monster);
 

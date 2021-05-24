@@ -119,6 +119,11 @@ class Character
         return $this->name;
     }
 
+    public function getMaxHp(): int
+    {
+        return $this->maxHP;
+    }
+
     public function addExp(int $exp): void
     {
         $this->exp += $exp;
