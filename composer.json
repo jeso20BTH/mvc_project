@@ -1,4 +1,6 @@
 {
+    "name" : "game/phpproject",
+    "description": "Course material for mvc.",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "dev",

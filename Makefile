@@ -81,7 +81,7 @@ phpstan: prepare
 	- [ ! -f .phpstan.neon ] || $(PHPSTAN) analyse -c .phpstan.neon | tee build/phpstan
 
 phpunit: prepare
-	$(PHPUNIT) --configuration=.phpunit.xml
+	XDEBUG_MODE=coverage $(PHPUNIT) --configuration=.phpunit.xml
 
 cs: phpcs
 

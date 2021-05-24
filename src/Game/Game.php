@@ -65,30 +65,6 @@ class Game
         }
     }
 
-    public function setupMonster(
-        array $Monsters,
-        string $direction
-        ): void
-    {
-        if ($backpack === null) {
-            $backpack = GameRules::LEVEL_REWARD["start"];
-        }
-
-        $this->player = new Character($name, $hp, $exp);
-
-        $this->player->setStats($stats);
-
-        foreach ($backpack as $item) {
-            $this->player->addToBackpack($item);
-        }
-
-        $len = GameRules::BASE_DICES + ($stats["agility"] * GameRules::INCREASE_DICES);
-        $faces = GameRules::BASE_DICE_SIDES + ($stats["strenght"] * GameRules::INCREASE_DICE_SIDES);
-        for ($i=0; $i < $len; $i++) {
-            $this->player->addDice($faces, 'normal');
-        }
-    }
-
     public function getCharacter(): Character
     {
         return $this->player;

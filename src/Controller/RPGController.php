@@ -386,7 +386,7 @@ class RPGController extends AbstractController
         $hp = round($currentMonster["hpPercentage"] * $characterHP);
         $monster = new Monster(
             $currentMonster["name"],
-            $hp,
+            intVal($hp),
             $currentMonster["exp"],
             $dices
         );
@@ -442,19 +442,5 @@ class RPGController extends AbstractController
         $this->session->set('currentCharacter', $character);
 
         return $this->redirectToRoute('rpg_backpack', ['returnRoute' => $redirect]);
-    }
-
-    /**
-     * @Route("/rpg/roll", name="rpg_roll")
-    */
-    public function rpgroll(): Response
-    {
-        $dice = new Dice(6, 'health3');
-        $roll = $dice->roll();
-
-        return $this->render('base.html.twig', [
-            'header' => "Welcome!",
-            'message' => 'Value: ' . strval($roll["value"]) . "Special: " . $roll["special"]
-        ]);
     }
 }
