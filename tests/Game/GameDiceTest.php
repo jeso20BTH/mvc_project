@@ -17,7 +17,7 @@ class GameDiceTest extends TestCase
      */
     public function testCreateTheDiceClass()
     {
-        $controller = new Dice(6);
+        $controller = new Dice(6, 'normal');
         $this->assertInstanceOf("\App\Game\Dice", $controller);
     }
 
@@ -26,48 +26,11 @@ class GameDiceTest extends TestCase
      */
     public function testDiceLastRollNoRoll()
     {
-        $controller = new Dice(6);
+        $controller = new Dice(6, 'normal');
         $this->assertInstanceOf("\App\Game\Dice", $controller);
 
         $lastRoll = $controller->getLastRoll();
 
         $this->assertEmpty($lastRoll);
-    }
-
-    /**
-     * Check that the last roll is equal to the rollen dice
-     */
-    public function testDiceLastRoll()
-    {
-        $controller = new Dice(6);
-        $this->assertInstanceOf("\App\Game\Dice", $controller);
-
-        $lastRoll = $controller->getLastRoll();
-
-        $this->assertEmpty($lastRoll);
-
-        $roll = $controller->roll();
-        $exp = $controller->getLastRoll();
-
-        $this->assertEquals($roll, $exp);
-    }
-
-    /**
-     * Check that the last roll is equal to set value
-     */
-    public function testDiceSetLastRoll()
-    {
-        $controller = new Dice(6);
-        $this->assertInstanceOf("\App\Game\Dice", $controller);
-
-        $lastRoll = $controller->getLastRoll();
-
-        $this->assertEmpty($lastRoll);
-
-        $exp = 6;
-        $controller->setLastRoll($exp);
-        $dice = $controller->getLastRoll();
-
-        $this->assertEquals($dice, $exp);
     }
 }

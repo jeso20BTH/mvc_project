@@ -3,7 +3,7 @@
 <form class="" action="{{ path('rpg_new_post') }}" method="post">
     <div class="flex row center">
         <label for="name">Name</label>
-        <input type="text" name="name" value="{{ name }}">
+        <input type="text" name="name" value="{{ name }}" required>
     </div>
     <div class="flex column">
         <p>Stamina - Increase HP by {{hp}} for each point from base HP of {{baseHP}}.</p>
