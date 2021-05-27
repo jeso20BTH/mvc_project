@@ -30,6 +30,7 @@ class Monster
         $this->maxHP = $hp;
         $this->exp = $exp;
         $this->dices = $dices;
+        $this->lastRoll = [];
     }
 
     public function roll(): void

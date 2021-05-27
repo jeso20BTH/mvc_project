@@ -32,6 +32,7 @@ class Character
         $this->exp = $exp;
         $this->backpack = ['dices' => [], 'food' => []];
         $this->stats = [];
+        $this->lastRoll = [];
     }
 
     public function roll(): void
@@ -185,7 +186,7 @@ class Character
         if (array_key_exists($toAdd, GameRules::FOOD)) {
             $this->addFood($toAdd);
         } elseif (array_key_exists($toAdd, Dice::DICES)) {
-            $diceFaces =  GameRules::BASE_DICE_SIDES + ($this->stats["strenght"] * GameRules::INCREASE_DICE_SIDES);
+            $diceFaces =  GameRules::BASE_DICE_SIDES + ($this->stats["strenght"] ?? 0 * GameRules::INCREASE_DICE_SIDES);
             $this->addDice($diceFaces, $toAdd);
         }
     }

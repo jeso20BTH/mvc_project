@@ -10,13 +10,14 @@ namespace App\Game;
 class Game
 {
     private int $gameNumber;
-    private Character $player;
+    private ?Character $player;
     const POINTS_TO_START = 5;
 
 
     public function __construct(int $gameNumber)
     {
         $this->gameNumber = $gameNumber;
+        $this->player = null;
     }
 
     public function generateStats($stamina, $strenght, $agility): array
@@ -65,7 +66,7 @@ class Game
         }
     }
 
-    public function getCharacter(): Character
+    public function getCharacter(): ?Character
     {
         return $this->player;
     }
