@@ -7,6 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * @codeCoverageIgnore
  * @method MvcProjectTurnLog|null find($id, $lockMode = null, $lockVersion = null)
  * @method MvcProjectTurnLog|null findOneBy(array $criteria, array $orderBy = null)
  * @method MvcProjectTurnLog[]    findAll()

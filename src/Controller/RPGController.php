@@ -13,6 +13,9 @@ use App\Game\Character;
 use App\Game\GameRules;
 use App\Game\Monster;
 
+/**
+ * @codeCoverageIgnore
+ */
 class RPGController extends AbstractController
 {
     private object $session;

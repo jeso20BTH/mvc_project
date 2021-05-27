@@ -10,6 +10,9 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Entity\MvcProjectHighscore;
 use App\Game\GameRules;
 
+/**
+ * @codeCoverageIgnore
+ */
 class HighscoreController extends AbstractController
 {
     private $repository;

@@ -7,6 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * @codeCoverageIgnore
  * @method MvcProjectHighscore|null find($id, $lockMode = null, $lockVersion = null)
  * @method MvcProjectHighscore|null findOneBy(array $criteria, array $orderBy = null)
  * @method MvcProjectHighscore[]    findAll()

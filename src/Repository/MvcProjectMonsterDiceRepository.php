@@ -7,6 +7,7 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
+ * @codeCoverageIgnore
  * @method MvcProjectMonsterDice|null find($id, $lockMode = null, $lockVersion = null)
  * @method MvcProjectMonsterDice|null findOneBy(array $criteria, array $orderBy = null)
  * @method MvcProjectMonsterDice[]    findAll()

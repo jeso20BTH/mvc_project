@@ -9,6 +9,9 @@ use App\Repository\MvcProjectLogRepository;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Entity\MvcProjectLog;
 
+/**
+ * @codeCoverageIgnore
+ */
 class LogController extends AbstractController
 {
     private $repository;
