@@ -6,6 +6,7 @@ use App\Repository\MvcProjectMonsterCharacterRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @codeCoverageIgnore
  * @ORM\Entity(repositoryClass=MvcProjectMonsterCharacterRepository::class)
  */
 class MvcProjectMonsterCharacter

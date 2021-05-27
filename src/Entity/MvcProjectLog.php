@@ -6,6 +6,7 @@ use App\Repository\MvcProjectLogRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @codeCoverageIgnore
  * @ORM\Entity(repositoryClass=MvcProjectLogRepository::class)
  */
 class MvcProjectLog

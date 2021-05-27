@@ -6,6 +6,7 @@ use App\Repository\MvcProjectMonsterDiceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @codeCoverageIgnore
  * @ORM\Entity(repositoryClass=MvcProjectMonsterDiceRepository::class)
  */
 class MvcProjectMonsterDice
