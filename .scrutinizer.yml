@@ -15,5 +15,5 @@ build:
             -
                 command: "make phpunit"
                 coverage:
-                    file: "coverage.clover"
+                    file: "build/coverage.clover"
                     format: "php-clover"
