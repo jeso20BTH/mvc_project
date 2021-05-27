@@ -64,7 +64,6 @@ class HighscoreController extends AbstractController
     public function save_highscorePost(): Response
     {
         $score = $this->session->get('toHighscore');
-        var_dump($score);
 
         $this->addHighscore(
             $score["gameNumber"],
