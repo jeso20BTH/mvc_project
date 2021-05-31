@@ -1,7 +1,7 @@
 ![Travis](https://travis-ci.com/jeso20BTH/mvc_project.svg?branch=main)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jeso20BTH/mvc_project/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/jeso20BTH/mvc_project/?branch=main)
-[![Code Coverage](https://scrutinizer-ci.com/g/jeso20BTH/mvc_project/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/jeso20BTH/mvc_project/?branch=main)
-[![Build Status](https://travis-ci.org/jeso20BTH/mvc_project.svg?branch=main)](https://travis-ci.org/jeso20BTH/mvc_project)
+![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/jeso20BTH/mvc_project/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/jeso20BTH/mvc_project/?branch=main)
+![Code Coverage](https://scrutinizer-ci.com/g/jeso20BTH/mvc_project/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/jeso20BTH/mvc_project/?branch=main)
+![Build Status](https://travis-ci.org/jeso20BTH/mvc_project.svg?branch=main)](https://travis-ci.org/jeso20BTH/mvc_project)
 
 # Dice combat
 ## Introduction
@@ -9,10 +9,17 @@ This is an dice-game webpage with an simple rpg game with dice based combat. It 
 
 Enjoy!
 
+![Game]('game.png')
+
 ## Technologies
 The webpage run on by Symfony which is an PHP based framework. The ORM towards the database is Doctrine. There is an development environment with tests by PHPUNIT.
 
 ## Installation
+Before the start of the installation you would need PHP, Composser, Webbserver and GIT
+1. Run ```git clone SSH:git@github.com:jeso20BTH/mvc_project.git```, to get the repository to the folder you curently is standing in.
+2. Run ```composser install``` to get the stuff needed to run the program.
+3. Run ```bash ```, to setup needed MySQL database tables.
+4. In ```.env``` update the connection to MySQL with your host-address and user data.
 
 
 ## How to play
