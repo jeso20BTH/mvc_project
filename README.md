@@ -9,7 +9,7 @@ This is an dice-game webpage with an simple rpg game with dice based combat. It 
 
 Enjoy!
 
-![Game]('public/game.png')
+![Game](public/game.png)
 
 ## Technologies
 The webpage run on by Symfony which is an PHP based framework. The ORM towards the database is Doctrine. There is an development environment with tests by PHPUNIT.
