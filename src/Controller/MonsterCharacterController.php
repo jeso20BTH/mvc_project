@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use App\Repository\MvcProjectMonsterCharacterRepository;
 use App\Repository\MvcProjectMonsterDiceRepository;
 
+/**
+ * @codeCoverageIgnore
+ */
 class MonsterCharacterController extends AbstractController
 {
     private object $session;

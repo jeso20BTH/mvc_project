@@ -26,12 +26,6 @@ class IndexController extends AbstractController
     {
         $this->session->clear();
 
-        return $this->render('base.html.twig', [
-            'header' => "Welcome!",
-            'message' => <<<EOD
-                            Welcome to my RPG dice style game. You will face enemies with dices as your weapon!
-                            Are you up to the challange?!
-                        EOD
-        ]);
+        return $this->redirectToRoute('rpg_index');
     }
 }

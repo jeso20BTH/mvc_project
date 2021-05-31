@@ -38,7 +38,10 @@ class RPGController extends AbstractController
 
         return $this->render('menu.html.twig', [
             'header' => "Welcome!",
-            'message' => 'Please start play'
+            'message' => <<<EOD
+                            Welcome to my RPG dice style game. You will face enemies with dices as your weapon!
+                            Are you up to the challange?!
+                        EOD
         ]);
     }
 
@@ -62,6 +65,8 @@ class RPGController extends AbstractController
             'strenght' => $char["strenght"] ?? 0,
             'agility' => $char["agility"] ?? 0,
             'max' => $char["max"] ?? null,
+            'usedPoints' => $char["usedPoints"] ?? 0,
+            'maxPoints' => GameRules::POINTS_TO_START,
             'hp' => GameRules::INCREASE_HP ?? 0,
             'baseHP' => GameRules::BASE_HP ?? 0,
             'diceSides' => GameRules::INCREASE_DICE_SIDES ?? 0,
@@ -199,7 +204,8 @@ class RPGController extends AbstractController
             'agility' => $futureStats["agility"] ?? 0,
             'agilityMin' => $characterStats["agility"],
             'max' => $futureStats["max"],
-            'usedPoints' => $futureStats["usedPoints"],
+            'usedPoints' => $futureStats["usedPoints"] ?? 0,
+            'maxPoints' => GameRules::LEVEL_UP_POINTS,
             'hp' => GameRules::INCREASE_HP ?? 0,
             'baseHP' => GameRules::BASE_HP ?? 0,
             'diceSides' => GameRules::INCREASE_DICE_SIDES ?? 0,
@@ -343,7 +349,8 @@ class RPGController extends AbstractController
             'stamina' => $stamina,
             'strenght' => $strenght,
             'agility' => $agility,
-            'max' => $max
+            'max' => $max,
+            'usedPoints' => $points
         ]);
 
         if ($action == "Confirm") {

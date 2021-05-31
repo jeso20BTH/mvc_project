@@ -6,6 +6,7 @@ use App\Repository\MvcProjectHighscoreRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @codeCoverageIgnore
  * @ORM\Entity(repositoryClass=MvcProjectHighscoreRepository::class)
  */
 class MvcProjectHighscore

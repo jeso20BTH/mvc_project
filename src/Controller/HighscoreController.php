@@ -28,13 +28,17 @@ class HighscoreController extends AbstractController
      */
     public function setGameNumber(): Response
     {
-        $id = $this->repository->findBy(
+        $idRes = $this->repository->findBy(
             [],
             ['id' => 'DESC'],
             1
         );
 
-        $id = $id[0]->getGameNumber() ?? 0;
+        $id = 0;
+
+        if ($idRes[0] ?? null) {
+            $id = $idRes[0]->getGameNumber();
+        }
 
         $this->session->set("gameNumber", $id);
 

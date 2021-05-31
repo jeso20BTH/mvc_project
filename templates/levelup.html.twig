@@ -2,6 +2,9 @@
 <h1>{{ header}}</h1>
 <h2>{{ name }}</h2>
 <form class="" action="{{ path('rpg_level_up_post') }}" method="post">
+    <div class="flex row center">
+        <h3>Points used: {{usedPoints}}/{{maxPoints}}</h3>
+    </div>
     <div class="flex column">
         <p>Stamina - Increase HP by {{hp}} for each point from base HP of {{baseHP}}.</p>
         <div class="flex row center">
