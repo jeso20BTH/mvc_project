@@ -18,7 +18,7 @@ The webpage run on by Symfony which is an PHP based framework. The ORM towards t
 Before the start of the installation you would need PHP, Composser, Webbserver and GIT
 1. Run ```git clone SSH:git@github.com:jeso20BTH/mvc_project.git```, to get the repository to the folder you curently is standing in.
 2. Run ```composser install``` to get the stuff needed to run the program.
-3. Run ```bash ```, to setup needed MySQL database tables.
+3. Run ```bash setup_db.bash```, to setup needed MySQL database tables.
 4. In ```.env``` update the connection to MySQL with your host-address and user data.
 
 
